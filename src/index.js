@@ -10,8 +10,9 @@ const socket_io_1 = require("socket.io");
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const app = (0, express_1.default)();
+const allowedOrigin = process.env.CLIENT_URL || '';
 app.use((0, cors_1.default)({
-    origin: [process.env.CLIENT_URL, 'http://localhost:3000'],
+    origin: allowedOrigin,
     credentials: true
 }));
 const server = http_1.default.createServer(app);
